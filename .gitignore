@@ -1,0 +1,22 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+ConvertPro-Studio-Hosting.zip
+covertorprozip.zip
+
+# Private config and temporary files
+.env
+storage/*
+!storage/.gitkeep
+
+# Editors / OS
+.vscode/
+.DS_Store
+Thumbs.db
