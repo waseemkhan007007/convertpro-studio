@@ -47,3 +47,27 @@ Open: http://localhost:5173
 - Watermark remover (brush selection and local inpainting; results depend on image content)
 
 See FILES_LOG.md for the list of files created in each phase.
+
+## Deploy the frontend to Firebase Hosting
+
+Firebase Hosting serves the frontend only; it does not run the Python conversion
+backend. The site pages can be published without a backend, but conversion
+tools need a separately deployed backend.
+
+1. Create a Firebase project in the [Firebase Console](https://console.firebase.google.com/).
+2. From the project root, install frontend dependencies and build the site:
+   ```powershell
+   cd frontend
+   npm install
+   npm run build
+   cd ..
+   ```
+3. Install and sign in to the Firebase CLI, then deploy the built frontend:
+   ```powershell
+   npm install -g firebase-tools
+   firebase login
+   firebase deploy --only hosting --project convertpro-studio
+   ```
+
+The root `firebase.json` serves `frontend/dist` and rewrites app routes to
+`index.html`, so refreshing a page such as `/faq` continues to work.
